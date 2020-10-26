@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+        <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>TOTAL</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <td colspan="4"></td>
+                <td>${{data[2]}}</td>
+            </tr>
+        </tfoot>
+        <tbody>
+            <!--this will be rewrite by date from user_date-->
+            {% for stock in data[1] %}
+                <tr>
+                    <td>{{stock['symbol']}}</td>
+                    <td>{{stock['name']}}</td>
+                    <td>{{stock['shares']}}</td>
+                    <td>${{stock['price']}}</td>
+                    <td>${{stock['total']}}</td>
+                </tr>
+            
+            
+            {% endfor %}
+                
+            <!--this will will be rewrite from data from user-->
+            
+            <tr>
+                <td colspan="4">CASH</td>
+                <td>{{data[0]['cash']}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+{% endblock %}

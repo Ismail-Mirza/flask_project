@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register Now
+{% endblock %}
+
+{% block main %}
+    <form action="/register" method="post">
+        <div class="form-group">
+            <input autocomplete="off" id="username" autofocus class="form-control" name="username" placeholder="Username" type="text">
+        </div>
+        <div class="form-group">
+            <input class="form-control" id="password" name="password" placeholder="Password" type="password">
+        </div>
+        <div class="form-group">
+            <input class="form-control" id="confirmation" name="confirmation" placeholder="Confirm password" type="password">
+        </div>
+        <button id="register" class="btn btn-primary" type="submit">Register</button>
+    </form>
+    <script type="text/javascript">
+      document.getElementById('username').onkeyup = function(){
+           if(document.getElementById('username').value === ''){
+             document.getElementById('register').disabled = true;
+           }
+           else{
+            document.getElementById('register').disabled = false;
+           }
+
+      }
+      document.getElementById('password').onkeyup = function(){
+           if(document.getElementById('password').value === ''){
+             document.getElementById('register').disabled = true;
+           }
+           else{
+            document.getElementById('register').disabled = false;
+           }
+
+      }
+
+      document.getElementById('confirmation').onkeyup = function(){
+           if(document.getElementById('confirmation').value === ''){
+             document.getElementById('register').disabled = true;
+           }
+           else{
+            document.getElementById('register').disabled = false;
+           }
+
+      }
+
+
+
+
+
+    </script>
+{% endblock %}
