@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+        <table class="table table-striped">
+       <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>Transacted</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--this will be rewrite by date from user_date-->
+            {% for hist in history %}
+                <tr>
+                    <td>{{hist['symbol']}}</td>
+                    <td>{{hist['shares']}}</td>
+                    <td>${{hist['price']}}</td>
+                    <td>{{hist['date']}}</td>
+                </tr>
+            
+            
+            {% endfor %}
+                
+            <!--this will will be rewrite from data from user-->
+    
+        </tbody>
+    </table>
+
+{% endblock %}
